@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 100px;
+}
+
+.form {
+  width: 600px;;
+}
+
+.md-tab { background-color: #ffffff !important; }
+
+.actions { display: flex; justify-content: flex-end; }
+
+.full-width {
+  width: 100%;
+}
