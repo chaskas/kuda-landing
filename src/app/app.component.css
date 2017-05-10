@@ -1,11 +1,18 @@
 .container {
+  height: 100%;
   display: flex;
-  justify-content: flex-end;
-  padding: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
 }
 
 .form {
-  width: 600px;;
+
+  width: 600px;
+  margin: 100px;
+  align-self: flex-end;
+
 }
 
 .md-tab { background-color: #ffffff !important; }
