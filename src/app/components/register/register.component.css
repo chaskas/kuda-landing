@@ -15,7 +15,21 @@
 
 }
 
-.md-tab { background-color: #ffffff !important; }
+.logo {
+  align-self: flex-start;
+}
+
+/deep/ .mat-tab-header {
+  background-color: #00cc99;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+}
+
+/deep/ .mat-card {
+  background-color:rgba(255,255,255,0.8);
+}
+
+.tab-label { background-color: #ffffff !important; }
 
 .actions { display: flex; justify-content: flex-end; }
 
