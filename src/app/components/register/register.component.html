@@ -1,15 +1,15 @@
 <div class="container">
-  <md-grid-list cols="2">
+  <md-grid-list cols="2" rowHeight="100%">
     <md-grid-tile>
       <img src="assets/logo.png" alt="küda" class="logo">
     </md-grid-tile>
     <md-grid-tile>
-      <md-tab-group class="form">
+      <md-tab-group class="form" dynamicHeight>
         <md-tab label="Personas" class="tab-label">
           <form [formGroup]="personForm" (submit)="createPerson()">
           <md-card>
             <md-card-header>
-              <md-card-title>¿Buscas empleo?</md-card-title>
+              <md-card-title>küda</md-card-title>
               <md-card-subtitle>Completa el siguiente formulario y encontraremos lo mejor para ti.</md-card-subtitle>
             </md-card-header>
 
@@ -83,6 +83,7 @@
                     <md-option [value]="3">Cajero</md-option>
                     <md-option [value]="4">Copero</md-option>
                     <md-option [value]="5">Guardia</md-option>
+                    <md-option [value]="5">Personal Aseo</md-option>
                   </md-select>
                 </md-grid-tile>
 

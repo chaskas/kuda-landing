@@ -11,12 +11,13 @@
 
   width: 600px;
   margin: 100px;
-  align-self: flex-end;
+  align-self: center;
 
 }
 
 .logo {
   align-self: flex-start;
+  padding-top: 200px;
 }
 
 /deep/ .mat-tab-header {
@@ -28,6 +29,17 @@
 /deep/ .mat-card {
   background-color:rgba(255,255,255,0.8);
 }
+/deep/ .mat-tab-label {
+  font-size: 20px !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  font-weight: 300 !important;
+}
+
+/deep/ .mat-input-placeholder { color: #000000; }
+/deep/ .mat-select-placeholder { color: #000000; }
+/deep/ .mat-card-title { font-size: 20px !important; }
+/deep/ .mat-card-subtitle { color: #000000; }
 
 .tab-label { background-color: #ffffff !important; }
 
