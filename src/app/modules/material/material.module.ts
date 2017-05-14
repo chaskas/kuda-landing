@@ -11,6 +11,7 @@ import { MdTabsModule } from '@angular/material';
 import { MdInputModule } from '@angular/material';
 import { MdSelectModule } from '@angular/material';
 import { MdAutocompleteModule } from '@angular/material';
+import { MdProgressBarModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { MdAutocompleteModule } from '@angular/material';
     MdTabsModule,
     MdInputModule,
     MdSelectModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    MdProgressBarModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -34,7 +36,8 @@ import { MdAutocompleteModule } from '@angular/material';
     MdTabsModule,
     MdInputModule,
     MdSelectModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    MdProgressBarModule
   ],
   declarations: []
 })

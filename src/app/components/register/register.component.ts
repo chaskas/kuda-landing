@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule, Router, RouterOutlet } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseListObservable } from 'angularfire2/database';
+import * as firebase from 'firebase';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -25,6 +26,11 @@ export class RegisterComponent implements OnInit {
   personForm: FormGroup;
   businessForm: FormGroup;
 
+  file: any;
+  downloadURL: string;
+
+  progress: number = 0;
+
   constructor(
     private db: AngularFireDatabase,
     private formBuilder: FormBuilder,
@@ -37,14 +43,37 @@ export class RegisterComponent implements OnInit {
     this.createBusinessForm();
   }
 
-  createPerson() {
-    this.persons.push(this.personForm.value);
-    this.router.navigate(['thanks']);
+  handleInput(e: any, input: any) : void {
+    this.file = input.files[0];
+  }
+
+  submitPerson() {
+
+    this.doUpload();
+
   }
 
   createBusiness() {
     this.businesses.push(this.businessForm.value);
     this.router.navigate(['thanks']);
+  }
+
+  private doUpload() : void {
+
+    var storageRef = firebase.storage().ref();
+    var uploadTask = storageRef.child('cvs/' + this.file.name).put(this.file);
+
+    uploadTask.on('state_changed', (snapshot) => {
+      this.progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+    }, function(error) {
+      console.log('file upload error.');
+    }, () => {
+      this.downloadURL = uploadTask.snapshot.downloadURL;
+      this.personForm.value['cvUrl'] = this.downloadURL;
+      this.persons.push(this.personForm.value);
+      this.router.navigate(['thanks']);
+    });
+
   }
 
   private createPersonForm()

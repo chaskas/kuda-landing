@@ -6,7 +6,7 @@
     <md-grid-tile>
       <md-tab-group class="form" dynamicHeight>
         <md-tab label="Personas" class="tab-label">
-          <form [formGroup]="personForm" (submit)="createPerson()">
+          <form [formGroup]="personForm" (submit)="submitPerson()">
           <md-card>
             <md-card-header>
               <md-card-title>küda</md-card-title>
@@ -85,6 +85,20 @@
                     <md-option [value]="5">Guardia</md-option>
                     <md-option [value]="5">Personal Aseo</md-option>
                   </md-select>
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="2" [rowspan]="1">
+
+                    <input type="file" #file (change)="handleInput($event, file)" class="file" required/>
+
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="2" [rowspan]="1" *ngIf="progress > 0">
+                  <md-progress-bar
+                      [color]="warn"
+                      [mode]="determinate"
+                      [value]="progress">
+                  </md-progress-bar>
                 </md-grid-tile>
 
               </md-grid-list>
