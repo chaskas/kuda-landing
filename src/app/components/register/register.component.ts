@@ -29,7 +29,9 @@ export class RegisterComponent implements OnInit {
   file: any;
   downloadURL: string;
 
-  progress: number = 0;
+  progress: number = -1;
+
+  file_name: string = "Sube tu Curriculum";
 
   constructor(
     private db: AngularFireDatabase,
@@ -45,12 +47,17 @@ export class RegisterComponent implements OnInit {
 
   handleInput(e: any, input: any) : void {
     this.file = input.files[0];
+    this.progress = 0;
+    if(!this.file) {
+      this.file_name = "Sube tu Curriculum";
+      this.progress = -1;
+    } else {
+      this.file_name = this.file.name;
+    }
   }
 
   submitPerson() {
-
     this.doUpload();
-
   }
 
   createBusiness() {

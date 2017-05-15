@@ -89,16 +89,19 @@
 
                 <md-grid-tile [colspan]="2" [rowspan]="1">
 
-                    <input type="file" #file (change)="handleInput($event, file)" class="file" required/>
+                  <label for="input-file">
+                  <a md-button>
+                      <md-icon>file_upload</md-icon> {{ file_name }}
+                  </a>
+                  </label>
+                  <input type="file" #file (change)="handleInput($event, file)" class="input-file" id="input-file" required/>
 
-                </md-grid-tile>
-
-                <md-grid-tile [colspan]="2" [rowspan]="1" *ngIf="progress > 0">
-                  <md-progress-bar
+                  <md-progress-bar *ngIf="progress > -1"
                       [color]="warn"
                       [mode]="determinate"
                       [value]="progress">
                   </md-progress-bar>
+
                 </md-grid-tile>
 
               </md-grid-list>
