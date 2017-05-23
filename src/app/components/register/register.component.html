@@ -1,10 +1,10 @@
 <div class="container">
-  <md-grid-list cols="2" rowHeight="100%">
-    <md-grid-tile>
-      <img src="assets/logo.png" alt="küda" class="logo">
-    </md-grid-tile>
-    <md-grid-tile>
-      <md-tab-group class="form" dynamicHeight>
+  <div fxLayout="row">
+    <div class="div-wrapper logo">
+      <img src="assets/logo.png" alt="küda">
+    </div>
+    <div class="div-wrapper">
+      <md-tab-group dynamicHeight>
         <md-tab label="Personas" class="tab-label">
           <form [formGroup]="personForm" (submit)="submitPerson()">
           <md-card>
@@ -14,68 +14,72 @@
             </md-card-header>
 
             <md-card-content>
-              <md-grid-list cols="2" rowHeight="70px">
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Nombres" formControlName="first_name" required></md-input-container>
-                  </md-grid-tile>
 
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Apellidos" formControlName="last_name" required></md-input-container>
-                  </md-grid-tile>
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Nombres" formControlName="first_name" required></md-input-container>
+                </div>
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Apellidos" formControlName="last_name" required></md-input-container>
+                </div>
+              </div>
 
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Fecha de Nacimiento" type="date"  style="margin-top:-5px;" formControlName="birthdate" required></md-input-container>
-                  </md-grid-tile>
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Fecha de Nacimiento" type="date"  style="margin-top:-5px;" formControlName="birthdate" required></md-input-container>
+                </div>
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Teléfono" formControlName="phone" required></md-input-container>
+                </div>
+              </div>
 
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Teléfono" formControlName="phone" required></md-input-container>
-                  </md-grid-tile>
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Email" formControlName="email" type="email" required></md-input-container>
+                </div>
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Dirección" formControlName="address" required></md-input-container>
+                </div>
+              </div>
 
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Email" formControlName="email" type="email" required></md-input-container>
-                  </md-grid-tile>
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Ciudad" formControlName="city" required></md-input-container>
+                </div>
+                <div fxFlex="50">
+                  <md-select placeholder="País" class="full-width" formControlName="country" required style="margin-top:5px;">
+                    <md-option [value]="1">Argentina</md-option>
+                    <md-option [value]="2">Bolivia</md-option>
+                    <md-option [value]="3">Brasil</md-option>
+                    <md-option [value]="4">Chile</md-option>
+                    <md-option [value]="5">Colombia</md-option>
+                    <md-option [value]="6">Costa Rica</md-option>
+                    <md-option [value]="7">Cuba</md-option>
+                    <md-option [value]="8">Ecuador</md-option>
+                    <md-option [value]="9">El Salvador</md-option>
+                    <md-option [value]="10">Guatemala</md-option>
+                    <md-option [value]="11">Haití</md-option>
+                    <md-option [value]="12">Honduras</md-option>
+                    <md-option [value]="13">México</md-option>
+                    <md-option [value]="14">Nicaragua</md-option>
+                    <md-option [value]="15">Panamá</md-option>
+                    <md-option [value]="16">Paraguay</md-option>
+                    <md-option [value]="17">Perú</md-option>
+                    <md-option [value]="18">República Dominicana</md-option>
+                    <md-option [value]="19">Uruguay</md-option>
+                    <md-option [value]="20">Venezuela</md-option>
+                  </md-select>
+                </div>
+              </div>
 
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Dirección" formControlName="address" required></md-input-container>
-                  </md-grid-tile>
-
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Ciudad" formControlName="city" required></md-input-container>
-                  </md-grid-tile>
-
-                  <md-grid-tile [colspan]="1" [rowspan]="1" style="margin-top:-5px;">
-                    <md-select placeholder="País" class="full-width" formControlName="country" required>
-                      <md-option [value]="1">Argentina</md-option>
-                      <md-option [value]="2">Bolivia</md-option>
-                      <md-option [value]="3">Brasil</md-option>
-                      <md-option [value]="4">Chile</md-option>
-                      <md-option [value]="5">Colombia</md-option>
-                      <md-option [value]="6">Costa Rica</md-option>
-                      <md-option [value]="7">Cuba</md-option>
-                      <md-option [value]="8">Ecuador</md-option>
-                      <md-option [value]="9">El Salvador</md-option>
-                      <md-option [value]="10">Guatemala</md-option>
-                      <md-option [value]="11">Haití</md-option>
-                      <md-option [value]="12">Honduras</md-option>
-                      <md-option [value]="13">México</md-option>
-                      <md-option [value]="14">Nicaragua</md-option>
-                      <md-option [value]="15">Panamá</md-option>
-                      <md-option [value]="16">Paraguay</md-option>
-                      <md-option [value]="17">Perú</md-option>
-                      <md-option [value]="18">República Dominicana</md-option>
-                      <md-option [value]="19">Uruguay</md-option>
-                      <md-option [value]="20">Venezuela</md-option>
-                    </md-select>
-                </md-grid-tile>
-
-                <md-grid-tile [colspan]="1" [rowspan]="1">
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
                   <md-select placeholder="Género" class="full-width" formControlName="gender" required>
                     <md-option [value]="0">Femenino</md-option>
                     <md-option [value]="1">Masculino</md-option>
                   </md-select>
-                </md-grid-tile>
-
-                <md-grid-tile [colspan]="1" [rowspan]="1">
+                </div>
+                <div fxFlex="50">
                   <md-select placeholder="Cargo" class="full-width" formControlName="position" required>
                     <md-option [value]="1">Administrador</md-option>
                     <md-option [value]="2">Anfitrión</md-option>
@@ -87,33 +91,39 @@
                     <md-option [value]="8">Copero</md-option>
                     <md-option [value]="9">Garzón</md-option>
                     <md-option [value]="10">Guardia</md-option>
+                    <md-option [value]="16">Maestro de Sushi</md-option>
                     <md-option [value]="11">Personal Aseo</md-option>
                     <md-option [value]="12">Promotor</md-option>
+                    <md-option [value]="17">Repartidor</md-option>
                     <md-option [value]="13">RRPP</md-option>
                     <md-option [value]="14">Sonidista</md-option>
                     <md-option [value]="15">Visualista</md-option>
                   </md-select>
-                </md-grid-tile>
+                </div>
+              </div>
 
-                <md-grid-tile [colspan]="2" [rowspan]="1">
-
+              <div fxLayout="row" class="form-row" fxLayoutAlign="center center">
+                <div fxFlex="33"></div>
+                <div fxFlex="33">
                   <label for="input-file">
                   <a md-button>
                       <md-icon>file_upload</md-icon> {{ file_name }}
                   </a>
                   </label>
                   <input type="file" #file (change)="handleInput($event, file)" class="input-file" id="input-file" required/>
-
+                </div>
+                <div fxFlex="33">
                   <md-progress-bar *ngIf="progress > -1"
                       [color]="warn"
                       [mode]="determinate"
                       [value]="progress">
                   </md-progress-bar>
+                </div>
 
-                </md-grid-tile>
+              </div>
 
-              </md-grid-list>
             </md-card-content>
+
             <md-card-actions class="actions">
               <button md-button color="accent" type="submit" [disabled]="!personForm.valid">Enviar</button>
             </md-card-actions>
@@ -131,64 +141,64 @@
             </md-card-header>
 
             <md-card-content>
-              <md-grid-list cols="2" rowHeight="70px">
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Empresa" formControlName="business" required></md-input-container>
-                  </md-grid-tile>
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Empresa" formControlName="business" required></md-input-container>
+                </div>
+                <div fxFlex="50">
+                  <md-select placeholder="Tipo" class="full-width" formControlName="type" required style="margin-top:5px;">
+                    <md-option [value]="0">Bar</md-option>
+                    <md-option [value]="1">Restaurant</md-option>
+                    <md-option [value]="2">Pub</md-option>
+                    <md-option [value]="3">Discotheque</md-option>
+                    <md-option [value]="4">Hostel</md-option>
+                    <md-option [value]="5">Hotel</md-option>
+                  </md-select>
+                </div>
+              </div>
 
-                  <md-grid-tile [colspan]="1" [rowspan]="1" style="margin-top:-5px;">
-                    <md-select placeholder="Tipo" class="full-width" formControlName="type" required>
-                      <md-option [value]="0">Bar</md-option>
-                      <md-option [value]="1">Restaurant</md-option>
-                      <md-option [value]="2">Pub</md-option>
-                      <md-option [value]="3">Discotheque</md-option>
-                      <md-option [value]="4">Hostel</md-option>
-                      <md-option [value]="5">Hotel</md-option>
-                    </md-select>
-                  </md-grid-tile>
+              <div fxLayout="row" class="form-row">
+                <md-input-container class="full-width"><input mdInput placeholder="Nombre Contacto" formControlName="contact" required></md-input-container>
+              </div>
 
-                  <md-grid-tile [colspan]="2" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Nombre Contacto" formControlName="contact" required></md-input-container>
-                  </md-grid-tile>
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Teléfono" formControlName="phone" required></md-input-container>
+                </div>
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Email" formControlName="email" type="email" required></md-input-container>
+                </div>
+              </div>
 
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Teléfono" formControlName="phone" required></md-input-container>
-                  </md-grid-tile>
-
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Email" formControlName="email" type="email" required></md-input-container>
-                  </md-grid-tile>
-
-                  <md-grid-tile [colspan]="1" [rowspan]="1">
-                    <md-input-container class="full-width"><input mdInput placeholder="Ciudad" formControlName="city" required></md-input-container>
-                  </md-grid-tile>
-
-                  <md-grid-tile [colspan]="1" [rowspan]="1" style="margin-top:-5px;">
-                    <md-select placeholder="País" class="full-width" formControlName="country" required>
-                      <md-option [value]="1">Argentina</md-option>
-                      <md-option [value]="2">Bolivia</md-option>
-                      <md-option [value]="3">Brasil</md-option>
-                      <md-option [value]="4">Chile</md-option>
-                      <md-option [value]="5">Colombia</md-option>
-                      <md-option [value]="6">Costa Rica</md-option>
-                      <md-option [value]="7">Cuba</md-option>
-                      <md-option [value]="8">Ecuador</md-option>
-                      <md-option [value]="9">El Salvador</md-option>
-                      <md-option [value]="10">Guatemala</md-option>
-                      <md-option [value]="11">Haití</md-option>
-                      <md-option [value]="12">Honduras</md-option>
-                      <md-option [value]="13">México</md-option>
-                      <md-option [value]="14">Nicaragua</md-option>
-                      <md-option [value]="15">Panamá</md-option>
-                      <md-option [value]="16">Paraguay</md-option>
-                      <md-option [value]="17">Perú</md-option>
-                      <md-option [value]="18">República Dominicana</md-option>
-                      <md-option [value]="19">Uruguay</md-option>
-                      <md-option [value]="20">Venezuela</md-option>
-                    </md-select>
-                </md-grid-tile>
-
-              </md-grid-list>
+              <div fxLayout="row" class="form-row">
+                <div fxFlex="50">
+                  <md-input-container class="full-width"><input mdInput placeholder="Ciudad" formControlName="city" required></md-input-container>
+                </div>
+                <div fxFlex="50">
+                  <md-select placeholder="País" class="full-width" formControlName="country" required style="margin-top:5px;">
+                    <md-option [value]="1">Argentina</md-option>
+                    <md-option [value]="2">Bolivia</md-option>
+                    <md-option [value]="3">Brasil</md-option>
+                    <md-option [value]="4">Chile</md-option>
+                    <md-option [value]="5">Colombia</md-option>
+                    <md-option [value]="6">Costa Rica</md-option>
+                    <md-option [value]="7">Cuba</md-option>
+                    <md-option [value]="8">Ecuador</md-option>
+                    <md-option [value]="9">El Salvador</md-option>
+                    <md-option [value]="10">Guatemala</md-option>
+                    <md-option [value]="11">Haití</md-option>
+                    <md-option [value]="12">Honduras</md-option>
+                    <md-option [value]="13">México</md-option>
+                    <md-option [value]="14">Nicaragua</md-option>
+                    <md-option [value]="15">Panamá</md-option>
+                    <md-option [value]="16">Paraguay</md-option>
+                    <md-option [value]="17">Perú</md-option>
+                    <md-option [value]="18">República Dominicana</md-option>
+                    <md-option [value]="19">Uruguay</md-option>
+                    <md-option [value]="20">Venezuela</md-option>
+                  </md-select>
+                </div>
+              </div>
 
             </md-card-content>
             <md-card-actions class="actions">
@@ -200,10 +210,7 @@
         </md-tab>
 
       </md-tab-group>
-    </md-grid-tile>
-  </md-grid-list>
-
-
-
+    </div>
+  </div>
 
 </div>

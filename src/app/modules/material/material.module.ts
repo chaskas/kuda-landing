@@ -12,6 +12,7 @@ import { MdInputModule } from '@angular/material';
 import { MdSelectModule } from '@angular/material';
 import { MdAutocompleteModule } from '@angular/material';
 import { MdProgressBarModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { MdProgressBarModule } from '@angular/material';
     MdInputModule,
     MdSelectModule,
     MdAutocompleteModule,
-    MdProgressBarModule
+    MdProgressBarModule,
+    FlexLayoutModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -37,7 +39,8 @@ import { MdProgressBarModule } from '@angular/material';
     MdInputModule,
     MdSelectModule,
     MdAutocompleteModule,
-    MdProgressBarModule
+    MdProgressBarModule,
+    FlexLayoutModule
   ],
   declarations: []
 })
