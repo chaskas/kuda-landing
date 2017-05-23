@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
 .container {
   height: 100%;
   display: flex;
@@ -5,6 +7,14 @@
   justify-content: center;
   align-items: center;
   align-content: center;
+  /*background-color: #E0F2F1;*/
+  background-image: url('../../../assets/back1.jpg');
+  background-size: cover;
+  /* TRANSITION */
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
 }
 
 .row-wrapper {
@@ -16,10 +26,22 @@
   padding: 80px;
 }
 
+.texto {
+  width: 350px;
+  font-family: 'Dosis', sans-serif;
+  font-size: 30px;
+  color: #ffffff;
+  word-wrap: break-word;
+  text-align: right;
+  line-height: 150%;
+  text-shadow: 2px 2px #000000;
+}
+
 .form-row { min-height: 70px; }
 
-.logo {
+.info {
   align-self: center;
+  align-items: flex-end;
 }
 
 .input-file {

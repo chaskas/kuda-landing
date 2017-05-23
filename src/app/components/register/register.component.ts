@@ -7,6 +7,8 @@ import * as firebase from 'firebase';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 import { Person } from '../../model/person';
 import { Business } from '../../model/business';
 
@@ -33,10 +35,17 @@ export class RegisterComponent implements OnInit {
 
   file_name: string = "Sube tu Curriculum";
 
+  bg: number = 0;
+  background: string = '../../../assets/back1.jpg';
+
+
+  texto: string = "küda te permite encontrar trabajo en bares, restaurantes, hoteles y discotecas alrededor del mundo.";
+
   constructor(
     private db: AngularFireDatabase,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {
     this.persons = db.list('/persons');
     this.businesses = db.list('/businesses');
@@ -63,6 +72,18 @@ export class RegisterComponent implements OnInit {
   createBusiness() {
     this.businesses.push(this.businessForm.value);
     this.router.navigate(['thanks']);
+  }
+
+  tabChanged = ($event: any): void => {
+    if(this.bg==0) {
+      this.bg = 1;
+      this.background = '../../../assets/back2.jpg';
+      this.texto = "¿Estás buscando personal? <br> ¿Necesitas organizar tus jornadas laborales? <br> Hablemos!";
+    } else {
+       this.bg = 0;
+       this.background = '../../../assets/back1.jpg';
+       this.texto = "küda te permite encontrar trabajo en bares, restaurantes, hoteles y discotecas alrededor del mundo.";
+    }
   }
 
   private doUpload() : void {

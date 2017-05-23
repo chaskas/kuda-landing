@@ -1,11 +1,13 @@
-<div class="container">
+<div class="container" [ngStyle]="{'background-image': 'url(' + background + ')'}">
   <div fxLayout="row">
-    <div class="div-wrapper logo">
+    <div class="div-wrapper info" fxLayout="column">
       <img src="assets/logo.png" alt="küda">
+
+      <p class="texto" [innerHTML]="texto"></p>
     </div>
     <div class="div-wrapper">
-      <md-tab-group dynamicHeight>
-        <md-tab label="Personas" class="tab-label">
+      <md-tab-group dynamicHeight (selectChange)="tabChanged($event)">
+        <md-tab label="Personas" class="tab-label" >
           <form [formGroup]="personForm" (submit)="submitPerson()">
           <md-card>
             <md-card-header>
@@ -103,8 +105,8 @@
               </div>
 
               <div fxLayout="row" class="form-row" fxLayoutAlign="center center">
-                <div fxFlex="33"></div>
-                <div fxFlex="33">
+                <div fxFlex="25"></div>
+                <div fxFlex="50" fxLayoutAlign="center center">
                   <label for="input-file">
                   <a md-button>
                       <md-icon>file_upload</md-icon> {{ file_name }}
@@ -112,7 +114,7 @@
                   </label>
                   <input type="file" #file (change)="handleInput($event, file)" class="input-file" id="input-file" required/>
                 </div>
-                <div fxFlex="33">
+                <div fxFlex="25">
                   <md-progress-bar *ngIf="progress > -1"
                       [color]="warn"
                       [mode]="determinate"
